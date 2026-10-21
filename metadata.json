@@ -1,0 +1,8 @@
+{
+  "name": "AutoCars",
+  "description": "Discover exceptional vehicles, explore inventory, and enquire about cars with AutoDrive.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

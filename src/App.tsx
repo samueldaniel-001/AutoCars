@@ -2,7 +2,18 @@
 import { useMemo, useState } from "react";
 import "./App.css";
 
-const cars = [
+interface Car {
+  id: number;
+  name: string;
+  type: string;
+  year: number;
+  price: number;
+  fuel: string;
+  transmission: string;
+  image: string;
+}
+
+const cars: Car[] = [
   {
     id: 1,
     name: "Toyota Camry",
@@ -71,7 +82,7 @@ const cars = [
   },
 ];
 
-const money = (amount) =>
+const money = (amount: number) =>
   new Intl.NumberFormat("en-NG", {
     style: "currency",
     currency: "NGN",
@@ -82,7 +93,7 @@ function App() {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
   const [menuOpen, setMenuOpen] = useState(false);
-  const [selectedCar, setSelectedCar] = useState(null);
+  const [selectedCar, setSelectedCar] = useState<Car | null>(null);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -105,7 +116,7 @@ function App() {
     [search, category]
   );
 
-  function handleSubmit(event) {
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     setFormMessage(
@@ -377,7 +388,7 @@ function App() {
             <textarea
               id="message"
               name="message"
-              rows="4"
+              rows={4}
               placeholder="Tell us which car interests you..."
               value={form.message}
               onChange={(event) =>
